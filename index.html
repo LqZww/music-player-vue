@@ -11,12 +11,13 @@
 
 <body>
     <div id="app">
-        <input type="text" v-model="query" @keyup.enter="searchMusic">
-        <button @click="searchMusic">搜索歌曲</button>
+        <input type="text" v-model="query" @keyup.enter="searchMusic" placeholder="请输入歌手或歌名">
+        <button @click="searchMusic">点我搜索</button>
         <ul>
             <li v-for="item in musicList">
-                <button @click="playMusic(item.id)">播放</button>
-                <b>{{item.name}}</b>
+                <button @click="playMusic(item.id)">点我播放</button>
+                <b>歌手：{{item.artists[0].name}}--</b>
+                <b>--歌名：{{item.name}}</b>
             </li>
         </ul>
         <div>

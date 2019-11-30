@@ -13,3 +13,22 @@ ul {
     height: 40vh;
     overflow: auto;
 }
+
+input {
+    font-size: 22px;
+    outline: none;
+    border: 2px solid rgb(22, 185, 71);
+    margin: 28px;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    color: blueviolet;
+    font-size: 22px;
+}
+
+li {
+    margin: 10px;
+}
