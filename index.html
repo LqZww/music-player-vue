@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音乐播放</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="query" @keyup.enter="searchMusic">
+        <button @click="searchMusic">搜索歌曲</button>
+        <ul>
+            <li v-for="item in musicList">
+                <button @click="playMusic(item.id)">播放</button>
+                <b>{{item.name}}</b>
+            </li>
+        </ul>
+        <div>
+            <audio ref='audio' :src="musicUrl" controls autoplay loop></audio>
+        </div>
+
+
+    </div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
