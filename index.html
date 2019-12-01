@@ -15,18 +15,34 @@
         <button @click="searchMusic">点我搜索</button>
         <ul>
             <li v-for="item in musicList">
-                <button @click="playMusic(item.id)">点我播放</button>
+                <button @click="playMusic(item.id)">点我播放音频</button>
                 <b>歌手：{{item.artists[0].name}}--</b>
                 <b>--歌名：{{item.name}}</b>
+                <button v-if="item.mvid !=0" @click="playMv(item.mvid)">点我播放MV视频</button>
             </li>
         </ul>
+
+        <div v-show="isShow">
+            <video :src="mvUrl" autoplay controls="controls" height="300px"></video>
+        </div>
+
+        <div>
+            <img :src="musicCover" alt="">
+        </div>
+
         <div>
             <audio ref='audio' :src="musicUrl" controls autoplay loop></audio>
         </div>
-
-
+        <div class="hotComments">
+            <dl v-for="item in hotComments">
+                <dt>
+                    <img :src="item.user.avatarUrl" alt="">
+                    用户名：{{item.user.nickname}}
+                </dt>
+                <dd>评论：{{item.content}}</dd>
+            </dl>
+        </div>
     </div>
-
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
