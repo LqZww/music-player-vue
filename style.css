@@ -51,3 +51,7 @@ dl {
 dt>img {
     width: 30px;
 }
+
+video {
+    height: 30vh;
+}
